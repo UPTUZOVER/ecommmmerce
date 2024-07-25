@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'rest_framework',
     "djoser",
     'corsheaders',
-    "cart",
     'parler',
     'parler_rest',
     "categories",
@@ -220,18 +219,12 @@ CORS_ALLOW_ALL_ORIGINS = True
 #         "NAME": BASE_DIR / "db.sqlite9",
 #     }
 # }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ecommerce_database',
-        'USER': 'ecommerce_rest',
-        'PASSWORD': 'samur123',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 
 # Password validation

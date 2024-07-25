@@ -3,11 +3,6 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from cart.views import (CartItemListCreateAPIView,
-                        CartListCreateAPIView, 
-                        CartItemRetrieveUpdateDestroyAPIView,
-                        CartRetrieveUpdateDestroyAPIView
-                        )
 
 from products.views import (
                         ProductViewSet,
@@ -53,12 +48,6 @@ urlpatterns = [
     path('api/products/<str:pk>/', ProductDetailViewSet.as_view(), name='product-detail'),
     path('api/categories/', CategoryViewSet.as_view()),
     path('api/categories/<int:pk>/', CategoryDetailViewSet.as_view(), name='category-detail'),
-    
-    #cart lar uchun
-    path('api/cart-items/', CartItemListCreateAPIView.as_view(), name='cart-item-list-create'),
-    path('api/cart-items/<int:pk>/', CartItemRetrieveUpdateDestroyAPIView.as_view(), name='cart-item-list-create'),
-    path('api/carts/', CartListCreateAPIView.as_view(), name='cart-list-create'),
-    path('api/carts/<str:pk>/', CartRetrieveUpdateDestroyAPIView.as_view(), name='cart-retrieve-update-destroy'),
     
 
     path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
