@@ -13,10 +13,6 @@ class ProductSerializer(TranslatableModelSerializer, ModelSerializer):
         fields = ('id', "title", 'categories', "cat", 'translations', 'image_main', 'count', 'price', "discount", 'true_price', 'img1', 'img2', 'img3', 'updated_on')
         ref_name = 'ProductSerializer'
 
-    def get_discount_percent(self, instance):
-        if instance.discount:
-            return int((instance.discount / instance.price) * 100)
-        return 0
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
